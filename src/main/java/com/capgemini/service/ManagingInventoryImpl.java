@@ -77,19 +77,23 @@ public class ManagingInventoryImpl implements IManagingInventory {
 			return productInventoryRepository.save(product);
 
 		}
-		return null;
+		else {
+			productInventoryRepository.deleteById(product.getId());
+			return null;
+		}
 	}
 
 	@Override
 	public List<Product> displayListOfNotApprovedProducts() {
 
-		return productInventoryRepository.displayListOfApprovedProducts();
+		return productInventoryRepository.displayListOfNotApprovedProducts();
 	}
 
 	@Override
 	public List<Product> displayListOfApprovedProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return productInventoryRepository.displayListOfApprovedProducts();
 	}
 }
+
 
